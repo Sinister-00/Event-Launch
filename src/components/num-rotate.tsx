@@ -1,11 +1,9 @@
 import { cn } from "@/utils/tailwind-util";
 
-const NUM_OF_NUMBERS = 60;
-const ANIMATION_DURATION = 200;
-
 export const NumberRotation = ({ number }: { number: number }) => {
-  const numbers = Array.from({ length: NUM_OF_NUMBERS }, (_, i) => i);
+  const numbers = Array.from({ length: 60 }, (_, i) => i);
 
+  // Determine the class for each number based on the current number
   const getClass = (num: number) => {
     if (number === num) return "opacity-100 transform-none";
     if (number > num) return "opacity-0 -translate-y-2";
@@ -18,8 +16,7 @@ export const NumberRotation = ({ number }: { number: number }) => {
         <div
           key={num}
           className={cn(
-            "w-full h-full absolute transition-all duration-" +
-              ANIMATION_DURATION,
+            "w-full h-full absolute transition-all duration-200",
             getClass(num)
           )}
         >
