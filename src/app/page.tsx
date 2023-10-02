@@ -6,7 +6,7 @@ import { useState, useEffect, use } from "react";
 import { type Framework, frameworks } from "@/utils/framework-util";
 import { FrameworkRotation } from "@/components/framework-rotation";
 import { cn } from "@/utils/tailwind-util";
-import { CountDownTimer } from "@/components/countdown-timer";
+import { CountdownTimer } from "@/components/countdown-timer";
 const poppins = Poppins({
   weight: "700",
   subsets: ["latin"],
@@ -139,7 +139,7 @@ export default function Home() {
             </button>
           </div>
 
-          <CountDownTimer currentFramework={currentFramework} />
+          <CountdownTimer currentFramework={currentFramework} />
         </div>
       </div>
     </main>

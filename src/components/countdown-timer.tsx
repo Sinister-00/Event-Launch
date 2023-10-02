@@ -2,37 +2,41 @@ import { calculateTimeToEvent } from "@/utils/countdown-util";
 import { type Framework } from "@/utils/framework-util";
 import { useState, useEffect } from "react";
 import { TimeUnit } from "./time-unit";
-export const CountDownTimer = ({
+
+export const CountdownTimer = ({
   currentFramework,
 }: {
   currentFramework: Framework;
 }) => {
   const [countdown, setCountdown] = useState(calculateTimeToEvent());
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCountdown(calculateTimeToEvent());
     }, 1000);
+
     return () => clearInterval(interval);
   }, []);
+
   return (
-    <div className="flex gap-[10px] text-center">
+    <div className={"text-center flex gap-[10px]"}>
       <TimeUnit
-        label="days"
+        label="DAYS"
         value={countdown.days}
         currentFramework={currentFramework}
       />
       <TimeUnit
-        label="hours"
+        label="HOURS"
         value={countdown.hours}
         currentFramework={currentFramework}
       />
       <TimeUnit
-        label="minutes"
+        label="MINUTES"
         value={countdown.minutes}
         currentFramework={currentFramework}
       />
       <TimeUnit
-        label="seconds"
+        label="SECONDS"
         value={countdown.seconds}
         currentFramework={currentFramework}
       />
